@@ -1,0 +1,7 @@
+- hosts: "{{ env }}"
+  become: yes
+  tasks: 
+    - name: remove any previous app services
+      command: docker container rm $(docker container ls -aq)
+    - name: deploy app
+      command: docker run -d -P shimanprateek1/website:{{ build }}
