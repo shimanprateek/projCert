@@ -1,0 +1,7 @@
+- hosts: "{{ env }}"
+  become: yes
+  tasks: 
+    - name: remove any previous app services
+      command: docker stop $(docker container ls -aq)
+      command: docker container rm $(docker container ls -aq)
+      command: docker rmi shimanprateek1/website:{{ build }}
