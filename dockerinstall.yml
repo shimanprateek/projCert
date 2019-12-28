@@ -1,4 +1,5 @@
 - hosts: qa
+  become: yes
   vars: 
      dockerceversion: 5:18.09.9~3-0~ubuntu-bionic
      dockercecliversion: 5:18.09.9~3-0~ubuntu-bionic
@@ -23,9 +24,9 @@
         state: present
       with_items:
 #            - docker-ce
-            - docker-ce= "{{ dockerceversion }}"
+            - docker-ce={{ dockerceversion }}
 #            - docker-ce-cli
-            - docker-ce-cli= "{{ dockercecliversion }}"
+            - docker-ce-cli={{ dockercecliversion }}
 #            - containerd.io
-            - containerd.io= "{{ containerdioversion }}"
+            - containerd.io={{ containerdioversion }}
       become: yes
