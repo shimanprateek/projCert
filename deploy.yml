@@ -2,4 +2,4 @@
   become: yes
   tasks:
     - name: deploy app
-      command: docker run -d -P shimanprateek1/website:{{ build }}
+      command: docker run -d -p 8003:80 shimanprateek1/website:{{ build }}
